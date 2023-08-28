@@ -1,6 +1,6 @@
 import numpy as np
 from itertools import combinations
-from calculate_zscore import calculate_zscore
+from src.calculate_zscore import calculate_zscore
 
 def find_pairs_signals(tickers, data, zscore_threshold):
     """
