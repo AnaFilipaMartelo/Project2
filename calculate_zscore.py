@@ -6,10 +6,10 @@ def calculate_zscore(spread):
     Calculate the z-score of a given spread value.
 
     Parameters:
-        spread (float): The spread value.
+        spread (Pandas Series): The spread value.
 
     Returns:
-        z_score (float): The calculated z-score.
+        z_score (Pandas Series): The calculated z-score.
     """
     mean_spread = spread.mean()
     std_dev_spread = spread.std()
