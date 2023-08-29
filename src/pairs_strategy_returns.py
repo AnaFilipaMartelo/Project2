@@ -10,7 +10,7 @@ def calculate_strategy_returns(data, signals_dict, pairs):
         pairs (list): List of pairs of assets.
 
     Returns:
-        merged_data (DataFrame): DataFrame with calculated strategy returns.
+        strategy_returns (DataFrame): DataFrame with calculated strategy returns.
     """
     strategy_returns = pd.DataFrame(index=data.index)
 
