@@ -2,7 +2,7 @@ import pandas as pd
 import hvplot.pandas
 from bokeh.plotting import show
 
-def plot_returns(data):
+def plot_df(data):
     """
     Create an interactive plot for cumulative returns using hvplot.
 
@@ -25,9 +25,8 @@ def plot_returns(data):
     returns_plot = data.hvplot.line(
         xlabel='Time', ylabel=common_title, title=common_title,
         line_width=2, alpha=0.7, hover_line_color='red',
-        width=1000, height=500,
-        legend='top_left'
-    )
+        width=1000, height=500
+    ).opts(legend_position='top_left')  # Move the legend outside the plot
 
     # Show the plot using Bokeh
     return returns_plot
