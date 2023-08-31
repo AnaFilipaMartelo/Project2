@@ -8,18 +8,23 @@ def calculate_asset_returns(data):
         data (DataFrame): DataFrame containing historical data for assets.
 
     Returns:
-        data_with_returns (DataFrame): DataFrame with added asset return columns.
+        asset_returns (DataFrame): DataFrame with asset return columns.
+        cumulative_returns (DataFrame): DataFrame with asset cumulative return columns.
     """
+
     # Calculate percent returns for each asset
     asset_returns = data.pct_change()
 
     # Rename columns to indicate returns
     asset_returns.columns = [f'{col} Returns' for col in asset_returns.columns]
 
-    # Concatenate the asset returns DataFrame with the original data
-    data_with_returns = pd.concat([data, asset_returns], axis=1)
+    # Calculate cumulative returns for each asset
+    cumulative_returns = (1 + asset_returns).cumprod()
 
-    return data_with_returns
+    # Rename columns to indicate cumulative returns
+    cumulative_returns.columns = [f'{col} Cumulative Returns' for col in data.columns]
+
+    return asset_returns, cumulative_returns
 
 
 

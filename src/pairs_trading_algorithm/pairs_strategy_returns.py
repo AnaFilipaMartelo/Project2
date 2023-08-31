@@ -11,8 +11,15 @@ def calculate_strategy_returns(data, signals_dict, pairs):
 
     Returns:
         strategy_returns (DataFrame): DataFrame with calculated strategy returns.
+        strategy_cumulative_returns (DataFrame): DataFrame with calculated cumulative strategy returns.
+        total_cumulative_returns (float): Total cumulative strategy returns.
     """
-    strategy_returns = pd.DataFrame(index=data.index)
+    # Initialize dataframe for strateg returns
+    strategy_returns = pd.DataFrame(index=data.index) 
+     # Initialize dataframe for cumulative strategy returns
+    strategy_cumulative_returns = pd.DataFrame(index=data.index) 
+    # Initialize total cumulative returns to 1
+    total_cumulative_returns = 1 
 
     for asset1_col, asset2_col in pairs:
 
@@ -26,11 +33,18 @@ def calculate_strategy_returns(data, signals_dict, pairs):
         )
 
         # Calculate the cumulative strategy returns
-        strategy_returns[f'{asset1_col}, {asset2_col} Cumulative Strategy Returns'] = (
+        strategy_cumulative_returns[f'{asset1_col}, {asset2_col} Cumulative Strategy Returns'] = (
             1 + strategy_returns[f'{asset1_col}, {asset2_col} Strategy Returns']
         ).cumprod()
 
-    return strategy_returns
+        # Update the total cumulative returns using the cumulative returns of the current pair
+        total_cumulative_returns *= (
+            1 + strategy_cumulative_returns[f'{asset1_col}, {asset2_col} Cumulative Strategy Returns']
+        ).iloc[-1]
+
+
+
+    return strategy_returns, strategy_cumulative_returns, total_cumulative_returns
 
 
 
