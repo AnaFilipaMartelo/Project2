@@ -28,7 +28,7 @@ The technologies used in this project include:
    * JupyterLab 3.4.4
    * Pandas 1.3.5
    * Scikit-Learn 1.0.2 
-   * Matplotlib 3.5.2
+   * Bokeh 2.4.3
   
 ---
 

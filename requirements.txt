@@ -1,0 +1,5 @@
+pandas==1.3.5
+hvplot==0.8.4
+scikit-learn==1.0.2
+jupyterlab==3.4.4
+bokeh==2.4.3
