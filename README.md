@@ -10,7 +10,7 @@ In this project, our goal is to develop and analyze trading algorithms for a div
 
 
 Future Development: 
-   - Consider areas for future enhancement, including refining profit calculations, incorporating risk management strategies, and optimizing algorithm execution.
+   - Refining profit calculations, incorporating risk management strategies, and optimizing algorithm execution.
 
    - Comparative Analysis: Evaluate the strategies based on metrics such as returns, volatility, and cumulative returns to determine their relative strengths.
 
